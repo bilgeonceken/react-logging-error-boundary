@@ -33,7 +33,10 @@
   "author": "",
   "homepage": "",
   "license": "MIT",
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bilgeonceken/react-logging-error-boundary"
+  },
   "keywords": [
     "react-component",
     "loggly",
