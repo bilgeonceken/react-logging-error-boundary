@@ -17,8 +17,8 @@ class LoggingErrorBoundary extends Component {
     // Initialize state based on ravenClient
     this.state = {
       hasError: false,
-      ravenExists: !!this.props.logService.sentry,
-      logglyExists: !!this.props.logService.loggly,
+      ravenExists: !!this.props.sentry,
+      logglyExists: !!this.props.loggly,
       ravenLoaded: global.Raven !== undefined,
       logglyLoaded: global._LTracker !== undefined ///
     }
@@ -106,7 +106,7 @@ class LoggingErrorBoundary extends Component {
 
     // We are creating Raven.Client manually to avoid conflicts with other raven clients
     LoggingErrorBoundary.ravenClient = global.Raven.config(
-      this.props.logService.sentry.dsn
+      this.props.sentry.dsn
     ).install()
   }
 
@@ -120,7 +120,7 @@ class LoggingErrorBoundary extends Component {
       // 'logglyKey': 'your-customer-token',
       sendConsoleErrors: true,
       tag: "loggly-jslogger",
-      ...this.props.logService.loggly
+      ...this.props.loggly
     })
   }
 
