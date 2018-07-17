@@ -168,7 +168,6 @@ class LoggingErrorBoundary extends Component {
       ravenExists,
       logglyExists
     } = this.state
-    console.log(hasError)
 
     if (hasError) return errorComponent
 
