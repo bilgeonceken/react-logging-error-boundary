@@ -1,8 +1,3 @@
-/*
-  props: logService -> {sentry: {dsn:"-------"}, loggly: {logglyKey:"-------"}}
-        errorComponent -> component to render when error
-  children: []
-*/
 import React, { Component, Fragment } from "react"
 import Script from "react-load-script"
 
@@ -17,8 +12,8 @@ class LoggingErrorBoundary extends Component {
     // Initialize state based on ravenClient
     this.state = {
       hasError: false,
-      ravenExists: !!this.props.sentry,
-      logglyExists: !!this.props.loggly,
+      ravenExists: !!this.props.logService.sentry,
+      logglyExists: !!this.props.logService.loggly,
       ravenLoaded: global.Raven !== undefined,
       logglyLoaded: global._LTracker !== undefined ///
     }
@@ -106,7 +101,7 @@ class LoggingErrorBoundary extends Component {
 
     // We are creating Raven.Client manually to avoid conflicts with other raven clients
     LoggingErrorBoundary.ravenClient = global.Raven.config(
-      this.props.sentry.dsn
+      this.props.logService.sentry.dsn
     ).install()
   }
 
@@ -120,7 +115,7 @@ class LoggingErrorBoundary extends Component {
       // 'logglyKey': 'your-customer-token',
       sendConsoleErrors: true,
       tag: "loggly-jslogger",
-      ...this.props.loggly
+      ...this.props.logService.loggly
     })
   }
 

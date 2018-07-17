@@ -9,8 +9,14 @@ class Demo extends Component {
     return (
       <div>
         <LoggingErrorBoundary
-          sentry={{ dsn: "your-dns" }}
-          loggly={{ logglyKey: "your-key" }}
+          logService={{
+            sentry: {
+              dsn: "your-dns"
+            },
+            loggly: {
+              logglyKey: "your-key"
+            }
+          }}
           errorComponent={<ErrorPage />}
         >
           <GivesError />
