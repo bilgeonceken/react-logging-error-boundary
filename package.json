@@ -35,6 +35,11 @@
   "license": "MIT",
   "repository": "",
   "keywords": [
-    "react-component"
+    "react-component",
+    "loggly",
+    "sentry",
+    "logging",
+    "error",
+    "boundary"
   ]
 }
