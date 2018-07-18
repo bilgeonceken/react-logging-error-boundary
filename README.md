@@ -41,6 +41,7 @@ ReactDOM.render(<App />, document.getElementById("root"))
 
 ### Properties
 
-| Property     | Type   | Required | Description                                            |
-| :----------- | :----- | :------- | :----------------------------------------------------- |
-| `logService` | object | no       | object that contains your sentry and/or loggly configs |
+| Property         | Type      | Required | Description                                                   |
+| :--------------- | :-------- | :------- | :------------------------------------------------------------ |
+| `logService`     | object    | no       | object that contains your sentry and/or loggly configs        |
+| `errorComponent` | component | no       | If something is broken users will see this instead of red box |
